@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<title>Game</title>
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+
+<script defer src="/js/pyscript.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.2.4/pixi.min.js"></script>
+
+   <script>
+ window.addEventListener('unhandledrejection', event => {
+  // Prevent the default browser behavior of logging the error
+ 
+  if (window.parent)
+  if (window.parent.game_error)
+     window.parent.game_error(event.reason)
+  // Log the error
+ 
+});
+
+     window.onerror = function(msg, url, lineNo, columnNo, error) {
+
+     if (window.parent)
+     if (window.parent.game_error)
+        window.parent.game_error(msg+" at "+url+" at line "+lineNo+" "+columnNo)    
+
+     return false
+  
+};
+</script>
+</head>
+ 
+<body oncontextmenu="return false;"">
+<div id = "score_section">Hello </div>
+
+
+<div id = "main_section"> </div>
+
+<py-config>
+   [[fetch]]
+   files = [  'game.py',  'engine.py', 'ball.py'  ]
+  
+</py-config>
+
+
+<py-script src="game.py"></py-script>
+<script src="js/jstopy.js"></script>
+ 
+<script src="js/engine.js"></script>
+ 
+</body>
+ 
+</html>
