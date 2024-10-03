@@ -35,11 +35,20 @@ function load_sound_files(files) {
 
 async function play_sound(sound) {
     
-        if (sounds[sound] == undefined)
-            throw "Error: " + sound + " not loaded"
-    
-        sounds[sound].play()
-    }
+    var audio = sounds[sound]
+    if (!audio.paused) 
+	{
+        // If the audio is still playing, let it finish and make a new one
+        let duplicateAudio = new Audio(audio.src) 
+        duplicateAudio.play()
+        sounds[sound] = duplicateAudio
+    } 
+	else 
+	{
+        audio.play()
+	}
+   
+}
 
 function update_mouse_button(event) {
     for (i=0; i < 8; i++)
