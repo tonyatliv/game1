@@ -35,21 +35,28 @@ function load_sound_files(files) {
 
 async function play_sound(sound) {
     
-    var audio = sounds[sound]
-    if (!audio.paused) 
-	{
-        // If the audio is still playing, let it finish and make a new one
-        let duplicateAudio = new Audio(audio.src) 
+    audio = sounds[sound]
+    if (!audio.paused) {
+        // If the audio is already playing, create a new Audio object using the current source
+        let duplicateAudio = new Audio(audio.src)  // Get the current audio source dynamically
         duplicateAudio.play()
         sounds[sound] = duplicateAudio
-    } 
-	else 
-	{
+    } else {
+        // If audio is not playing, play the original audio
         audio.play()
-	}
+    }
    
-}
+    }
 
+    function set_game_scale(scale) {
+        app.stage.scale.x = scale
+        app.stage.scale.y = scale
+    }
+    
+    function set_game_rotation(rotation) {
+        app.stage.rotation = rotation
+    }
+    
 function update_mouse_button(event) {
     for (i=0; i < 8; i++)
         {

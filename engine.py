@@ -26,6 +26,13 @@ def load_sound_files(filenames):
 def play_sound(name):
     js.play_sound(name)
 
+def set_game_scale(scale):
+    js.set_game_scale(scale)
+
+def set_game_rotation(rotation):
+    js.set_game_rotation(rotation)
+    
+
 def add_sprite(filename, width, height, do_click):
     click_proxy = create_proxy(do_click) 
     return js.add_sprite(filename, width, height, click_proxy)
