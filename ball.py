@@ -32,7 +32,8 @@ class Ball:
         self.xpos = self.xpos + self.xspeed
         self.ypos = self.ypos + self.yspeed  
 
-
+    def bounce(self):
+        self.yspeed = -self.yspeed
 
     def check_bounce(self):
         bounce = False

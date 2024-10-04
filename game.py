@@ -16,6 +16,9 @@ def load_game_files():
 def play_sound(name):
     engine.play_sound(name)
 
+def handle_page_actions(action):
+    if (action == "bounce"):
+        game.ball1.bounce() 
     
 #This is run once at the start of the game, after the files have loaded
 def start_game():
